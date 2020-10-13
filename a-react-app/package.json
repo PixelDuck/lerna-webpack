@@ -1,0 +1,44 @@
+{
+  "name": "a-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/bundle.js",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "npm run build && node src/server/index.js",
+    "client": "webpack-dev-server --mode development --devtool inline-source-map --host 0.0.0.0 --hot",
+    "server": "nodemon src/server/index.js --watch src/server",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "browserslist": [
+    "last 1 version",
+    "not dead",
+    ">1%",
+    "ie>=11"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.3.0",
+    "css-loader": "^4.3.0",
+    "express": "^4.17.1",
+    "file-loader": "^6.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "nodemon": "^2.0.4",
+    "regenerator-runtime": "^0.13.7",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.4",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
