@@ -6,11 +6,19 @@ const { magicNumber } = constants;
 
 console.info('index.js from core was loaded!');
 
-let anotherPackage;
-try {
-  anotherPackage = require('@my-lerna-library/another-package');
-} catch(error) {
-  console.error(error);
+let anotherPackage = undefined;
+
+function fromAnotherPackage() {
+  console.info("fromAnotherPackage")
+  if (anotherPackage === undefined) {
+    try {
+      anotherPackage = require('@my-lerna-library/another-package');
+    } catch(error) {
+      anotherPackage = null;
+      console.error(error);
+    }
+  }
+  return anotherPackage;
 }
 
 class Test {
@@ -20,9 +28,10 @@ class Test {
     return `hello from main endpoint ${magicNumber}`;
   }
   testFromAnotherPackage() {
-    console.info("call to testFromAnotherPackage", anotherPackage);
-    if (anotherPackage) {
-      return new anotherPackage.AnotherClass().test();
+    console.info("call to testFromAnotherPackage");
+    const AnotherClass = fromAnotherPackage()?.AnotherClass;
+    if (AnotherClass) {
+      return new AnotherClass().test();
     }
     return "Another package not loaded";
   }

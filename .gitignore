@@ -1,6 +1,9 @@
 a-react-app/node_modules
 a-react-app/dist
-my-library/node_modules
-my-library/dist
 *.log
 *.lock
+my-lerna-library/node_modules
+my-lerna-library/packages/core/node_modules
+my-lerna-library/packages/core/dist
+my-lerna-library/packages/core/another-package
+my-lerna-library/packages/another-package/dist
