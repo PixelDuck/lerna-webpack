@@ -1,0 +1,15 @@
+{
+  "name": "my-lerna-library",
+  "private": true,
+  "version": "1.0.0",
+  "license": "ISC",
+  "description": "",
+  "main": "dist/index.bundle.js",
+  "scripts": {
+    "dev": "webpack --watch --devtool inline-source-map --mode development",
+    "build": "webpack --mode production"
+  },
+  "optionalPeerDependencies": {
+    "@my-lerna-library/another-package": "1.0.0"
+  }
+}

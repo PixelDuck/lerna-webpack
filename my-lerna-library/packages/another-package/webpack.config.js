@@ -1,26 +1,18 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const outputDir = path.join(__dirname, 'public')
+const outputDir = path.join(__dirname, 'dist')
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, 'index.js'),
-    constants: path.resolve(__dirname, 'constants.js'),
-    anotherFile: path.resolve(__dirname, 'anotherFile.js')
+    index: path.resolve(__dirname, 'src', 'index.js')
   },
   output: {
     filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js',
     path: outputDir,
     libraryTarget: 'umd',
     globalObject: 'this',
-    library: 'my-library'
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
+    library: '@my-lerna-library/another-package'
   },
   resolve: {
     extensions: ['.js', '.cjs', '.css', '.svg']
@@ -43,7 +35,8 @@ module.exports = {
             ],
             plugins: [
               "@babel/proposal-class-properties",
-              "@babel/proposal-object-rest-spread"
+              "@babel/proposal-object-rest-spread",
+              "dynamic-import-webpack"
             ]
           }
         }
@@ -61,6 +54,10 @@ module.exports = {
           }
         ]
       },
+      { 
+        test: /\.svg$/, 
+        loader: 'svg-url-loader'
+      }
     ]
   },
   plugins: [

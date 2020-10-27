@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./public/favicon.ico" />
+    <script src="@my-lerna-library/another-package/dist/index.bundle.js"></script>
+    <script src="my-lerna-library/dist/index.bundle.js"></script>
+    <title>Simple test</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <h2 id="textFromCoreHolder"></h2>
+      <h2 id="textFromAnotherPackageHolder"></h2>
+      <div id="imagePlaceHolder"></div>
+    </div>
+    <script>
+      const { Test } = globalThis['my-lerna-library'];
+      const test = new Test();
+      document.getElementById('textFromCoreHolder').appendChild(document.createTextNode(test.test()));
+      document.getElementById('textFromAnotherPackageHolder').appendChild(document.createTextNode(test.testFromAnotherPackage()));
+      const bigSVG = test.bigSVGFromAnotherPackage();
+      if (bigSVG) {
+        const img = document.createElement('img');
+        img.src = bigSVG;
+        img.alt = 'loaded from UMD module';
+        document.getElementById('imagePlaceHolder').appendChild(img);
+      }
+    </script>
+  </body>
+</html>

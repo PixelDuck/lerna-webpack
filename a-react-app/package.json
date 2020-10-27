@@ -10,7 +10,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "npm run build && node src/server/index.js",
-    "client": "webpack-dev-server --mode development --devtool inline-source-map --host 0.0.0.0 --hot",
+    "client": "webpack serve --mode development --devtool inline-source-map --host 0.0.0.0 --hot",
     "server": "nodemon src/server/index.js --watch src/server",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -37,8 +37,8 @@
     "regenerator-runtime": "^0.13.7",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
-    "webpack": "4.44.2",
-    "webpack-cli": "3.3.4",
+    "webpack": "^5.2.0",
+    "webpack-cli": "4.1.0",
     "webpack-dev-server": "^3.11.0"
   }
 }

@@ -1,4 +1,6 @@
 a-react-app/node_modules
+a-react-app/dist
 my-library/node_modules
+my-library/dist
 *.log
 *.lock

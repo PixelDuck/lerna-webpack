@@ -9,6 +9,8 @@ app.get('/isActive', (req, res) => {
 });
 
 app.use(express.static('dist'));
+app.use(express.static('src/client'));
+app.use(express.static('node_modules'));
 
 app.listen(5000, () =>
   console.log('Express server is running on localhost:5000')

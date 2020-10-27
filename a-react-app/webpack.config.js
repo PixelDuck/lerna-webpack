@@ -5,18 +5,21 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const outputDir = path.join(__dirname, 'dist');
 
 module.exports = {
-  entry: [
-    path.join(__dirname, 'src', 'client', 'index.js')
-  ],
+  entry: {
+    index: path.join(__dirname, 'src', 'client', 'index.js')
+  },
   output: {
+    filename: '[name].bundle.js',
     path: outputDir,
-    filename: 'bundle.js'
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/.*/,
         use: {
           loader: 'babel-loader'
         }
@@ -27,12 +30,12 @@ module.exports = {
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000'
+        loader: 'url-loader',
+        options: {
+          limit: 100000
+        }
       }
     ]
-  },
-  resolve: {
-    extensions: ['*', '.js', '.jsx']
   },
   devServer: {
     port: 3000,
