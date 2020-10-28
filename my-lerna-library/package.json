@@ -1,12 +1,14 @@
 {
-  "name": "my-lerna-library-module",
+  "name": "my-lerna-library",
   "private": true,
   "version": "1.0.0",
   "license": "ISC",
   "description": "",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ]
+  },
   "scripts": {
     "build": "lerna run build",
     "dev": "lerna run dev --stream",

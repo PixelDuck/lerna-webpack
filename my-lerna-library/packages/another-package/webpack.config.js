@@ -12,6 +12,7 @@ module.exports = {
     path: outputDir,
     libraryTarget: 'umd',
     globalObject: 'this',
+    umdNamedDefine: true,
     library: '@my-lerna-library/another-package'
   },
   resolve: {
@@ -35,8 +36,7 @@ module.exports = {
             ],
             plugins: [
               "@babel/proposal-class-properties",
-              "@babel/proposal-object-rest-spread",
-              "dynamic-import-webpack"
+              "@babel/proposal-object-rest-spread"
             ]
           }
         }

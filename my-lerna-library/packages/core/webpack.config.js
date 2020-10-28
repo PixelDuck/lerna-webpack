@@ -12,8 +12,16 @@ module.exports = {
     path: outputDir,
     libraryTarget: 'umd',
     globalObject: 'this',
-    library: 'my-lerna-library'
+    umdNamedDefine: true,
+    library: '@my-lerna-library/core'
   },
+  externals: {
+    '@my-lerna-library/another-package': {
+      root: '@my-lerna-library/another-package',
+      commonjs: '@my-lerna-library/another-package',
+      commonjs2: '@my-lerna-library/another-package'
+    }
+	},
   resolve: {
     extensions: ['.js', '.cjs', '.css', '.svg']
   },
