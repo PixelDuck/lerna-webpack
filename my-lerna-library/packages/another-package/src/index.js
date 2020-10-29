@@ -16,7 +16,3 @@ class AnotherClass {
 export {
   logo, bigSVG, AnotherClass
 } 
-
-// globalThis['@my-lerna-library/another-package'] = {
-//   logo, bigSVG, AnotherClass
-// };
