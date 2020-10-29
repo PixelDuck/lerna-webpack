@@ -6,44 +6,31 @@ const { magicNumber } = constants;
 
 console.info('index.js from core was loaded!');
 
-let anotherPackage = undefined;
-
-function fromAnotherPackage() {
-  console.info("fromAnotherPackage")
-  if (anotherPackage === undefined) {
-    try {
-      anotherPackage = require('@my-lerna-library/another-package');
-    } catch(error) {
-      anotherPackage = null;
-      console.error(error);
-    }
-  }
-  return anotherPackage;
+function isMyLernaLibraryAnotherPackageDefined() {
+  return typeof myLernaLibraryAnotherPackage !== 'undefined';
 }
-
 class Test {
   constructor() {
+    this.modules = {};
   }
+
   test() {
     return `hello from main endpoint ${magicNumber}`;
   }
+  
   testFromAnotherPackage() {
-    console.info("call to testFromAnotherPackage");
-    const AnotherClass = fromAnotherPackage()?.AnotherClass;
-    if (AnotherClass) {
-      return new AnotherClass().test();
-    }
-    return "Another package not loaded";
+    if (isMyLernaLibraryAnotherPackageDefined())
+      return new myLernaLibraryAnotherPackage.AnotherClass().test();
   }
+
   iconFromAnotherPackage() {
-    if (anotherPackage) {
-      return anotherPackage.logo;
-    }
+    if (isMyLernaLibraryAnotherPackageDefined())
+      return myLernaLibraryAnotherPackage.logo;
   }
+  
   bigSVGFromAnotherPackage() {
-    if (anotherPackage) {
-      return anotherPackage.bigSVG;
-    }
+    if (isMyLernaLibraryAnotherPackageDefined())
+      return myLernaLibraryAnotherPackage.bigSVG;
   }
 }
 

@@ -10,10 +10,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: outputDir,
-    libraryTarget: 'umd',
-    globalObject: 'this',
-    umdNamedDefine: true,
-    library: '@my-lerna-library/another-package'
+    libraryTarget: 'global',
+    library: 'myLernaLibraryAnotherPackage'
   },
   resolve: {
     extensions: ['.js', '.cjs', '.css', '.svg']

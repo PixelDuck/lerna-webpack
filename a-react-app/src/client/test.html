@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" href="./public/favicon.ico" />
     <script src="@my-lerna-library/another-package/dist/index.bundle.js"></script>
-    <script src="@my-lerna-library/core/dist/index.bundle.js"></script>
+    <script src="my-lerna-library/dist/index.bundle.js"></script>
     <title>Simple test</title>
   </head>
   <body>
@@ -15,8 +15,7 @@
       <div id="imagePlaceHolder"></div>
     </div>
     <script>
-      const { Test } = globalThis['@my-lerna-library/core'];
-      const test = new Test();
+      const test = new mylernalibrary.Test();
       document.getElementById('textFromCoreHolder').appendChild(document.createTextNode(test.test()));
       document.getElementById('textFromAnotherPackageHolder').appendChild(document.createTextNode(test.testFromAnotherPackage()));
       const bigSVG = test.bigSVGFromAnotherPackage();
