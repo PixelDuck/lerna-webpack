@@ -10,11 +10,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: outputDir,
-    libraryTarget: 'umd',
-    library: 'mylernalibrary'
-  },
-  externals: {
-    '@my-lerna-library/common': '@my-lerna-library/common'
+    libraryTarget: 'global',
+    library: 'myLernaLibraryCommon'
   },
   resolve: {
     extensions: ['.js', '.cjs', '.css', '.svg']
@@ -37,10 +34,7 @@ module.exports = {
             ],
             plugins: [
               "@babel/proposal-class-properties",
-              "@babel/proposal-object-rest-spread",
-              ["@babel/plugin-transform-runtime", {
-                "regenerator": true
-              }]
+              "@babel/proposal-object-rest-spread"
             ]
           }
         }
@@ -57,6 +51,10 @@ module.exports = {
             }
           }
         ]
+      },
+      { 
+        test: /\.svg$/, 
+        loader: 'svg-url-loader'
       }
     ]
   },

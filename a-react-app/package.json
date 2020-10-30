@@ -4,6 +4,9 @@
   "private": true,
   "main": "dist/bundle.js",
   "dependencies": {
+    "my-lerna-library": "1.0.0",
+    "@my-lerna-library/common": "1.0.0",
+    "@my-lerna-library/another-package": "1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

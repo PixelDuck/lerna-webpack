@@ -1,5 +1,5 @@
 {
-  "name": "my-lerna-library",
+  "name": "@my-lerna-library/common",
   "private": true,
   "version": "1.0.0",
   "license": "ISC",
@@ -9,7 +9,7 @@
     "dev": "webpack --watch --devtool inline-source-map --mode development",
     "build": "webpack --mode production"
   },
-  "optionalPeerDependencies": {
-    "@my-lerna-library/common": "1.0.0"
+  "peerDependencies": {
+    "my-lerna-library": "1.0.0"
   }
 }

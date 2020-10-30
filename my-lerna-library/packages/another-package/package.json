@@ -10,6 +10,6 @@
     "build": "webpack --mode production"
   },
   "peerDependencies": {
-    "@my-lerna-library/core": "1.0.0"
+    "my-lerna-library": "1.0.0"
   }
 }

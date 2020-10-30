@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-import '@my-lerna-library/another-package';
 import { Test } from 'my-lerna-library';
+import '@my-lerna-library/another-package';
 
 const App = () => {
   const [test, setTest] = useState(null);

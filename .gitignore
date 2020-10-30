@@ -5,5 +5,7 @@ a-react-app/dist
 my-lerna-library/node_modules
 my-lerna-library/packages/core/node_modules
 my-lerna-library/packages/core/dist
-my-lerna-library/packages/core/another-package
+my-lerna-library/packages/common/node_modules
+my-lerna-library/packages/common/dist
+my-lerna-library/packages/another-package/node_modules
 my-lerna-library/packages/another-package/dist
